@@ -21,6 +21,15 @@ if lib#plug_begin()
     " Improvements in usability of searches and movement commands.
     Plug 'haya14busa/incsearch.vim'
     Plug 'unblevable/quick-scope'
+
+    " Additional or improved text editing features.
+    Plug 'andrewradev/splitjoin.vim'
+    Plug 'matze/vim-move'
+    Plug 'tpope/vim-abolish'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-endwise'
+    Plug 'tpope/vim-rsi'
+    Plug 'tpope/vim-surround'
 call plug#end() | endif
 
 " Global behavioral settings.
@@ -121,6 +130,10 @@ endif
 
 if lib#has_plugin('quick-scope')
     let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+endif
+
+if lib#has_plugin('vim-move')
+    let g:move_key_modifier = 'C'
 endif
 
 " Appearance and colorscheme.
