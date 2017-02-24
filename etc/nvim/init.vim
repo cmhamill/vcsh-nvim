@@ -48,6 +48,24 @@ noremap <Leader>u :MundoToggle<CR>
 inoremap <C-U> <C-G>u<C-U>
 inoremap <CR> <C-G>u<CR>
 
+" Make Y work like C and D.
+nnoremap Y y$
+
+nnoremap <Leader>w :setlocal wrap!<CR>
+" When line-wrapping is enabled, use j and k to navigate by apparent
+" line, not just actual lines in the file.
+augroup wrap_movement
+    autocmd!
+    autocmd OptionSet wrap if &wrap
+        \| nnoremap <buffer> j gj
+        \| nnoremap <buffer> k gk
+    \| else
+        \| silent! nunmap <buffer> j
+        \| silent! nunmap <buffer> k
+    \| endif
+augroup END
+
+
 " Text-editing behaviorial settings.
 set textwidth=72
 set formatoptions-=t    " Don't auto-wrap text.
@@ -71,23 +89,6 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
-
-" Make Y work like C and D.
-nnoremap Y y$
-
-nnoremap <Leader>w :setlocal wrap!<CR>
-" When line-wrapping is enabled, use j and k to navigate by apparent
-" line, not just actual lines in the file.
-augroup wrap_movement
-    autocmd!
-    autocmd OptionSet wrap if &wrap
-        \| nnoremap <buffer> j gj
-        \| nnoremap <buffer> k gk
-    \| else
-        \| silent! nunmap <buffer> j
-        \| silent! nunmap <buffer> k
-    \| endif
-augroup END
 
 " Incremental search with highlighting.
 set incsearch
