@@ -8,6 +8,11 @@ if lib#plug_begin()
     Plug 'dietsche/vim-lastplace'
     Plug 'kopischke/vim-fetch'
     Plug 'tpope/vim-repeat'
+
+    " Elaborations on existing features.
+    Plug 'simnalamburt/vim-mundo'
+    Plug 'tpope/vim-vinegar'
+    Plug 'tpope/vim-speeddating'
 call plug#end() | endif
 
 " Global behavioral settings.
@@ -32,6 +37,12 @@ endif
 if has('clipboard')
     set clipboard+=unnamedplus
 endif
+
+noremap <Leader>u :MundoToggle<CR>
+
+" Make undo work in insert mode even after <C-U> or <CR>.
+inoremap <C-U> <C-G>u<C-U>
+inoremap <CR> <C-G>u<CR>
 
 " Text-editing behaviorial settings.
 set textwidth=72
@@ -59,10 +70,6 @@ set expandtab
 
 " Make Y work like C and D.
 nnoremap Y y$
-
-" Make undo work in insert mode even after <C-U> or <CR>.
-inoremap <C-U> <C-G>u<C-U>
-inoremap <CR> <C-G>u<CR>
 
 nnoremap <Leader>w :setlocal wrap!<CR>
 " When line-wrapping is enabled, use j and k to navigate by apparent
