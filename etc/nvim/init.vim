@@ -50,6 +50,9 @@ if lib#plug_begin()
     Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'vim-scripts/openvpn'
     Plug 'vim-scripts/SyntaxRange'
+
+    " Building and linting.
+    Plug 'neomake/neomake'
 call plug#end() | endif
 
 " Global behavioral settings.
@@ -178,6 +181,18 @@ if lib#has_plugin('vim-pandoc-syntax')
 endif
 if lib#has_plugin('vim-racer')
     let g:racer_cmd = $HOME . '/.cargo/bin/racer'
+endif
+
+" Building and linting.
+if lib#has_plugin('neomake')
+    augroup neomake_settings
+        autocmd!
+        autocmd BufWritePost * Neomake
+    augroup END
+    let g:neomake_error_sign   = {'text': '‼', 'texthl': 'Error'}
+    let g:neomake_warning_sign = {'text': '!', 'texthl': 'Todo'}
+    let g:neomake_info_sign    = {'text': '⚐', 'texthl': 'Todo'}
+    let g:neomake_message_sign = {'text': '⚑', 'texthl': 'Todo'}
 endif
 
 " Appearance and colorscheme.
