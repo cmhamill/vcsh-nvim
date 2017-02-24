@@ -1,5 +1,15 @@
 scriptencoding utf-8
 
+if lib#plug_begin()
+    " Global behavioral changes.
+    Plug 'ConradIrwin/vim-bracketed-paste'
+    Plug 'aperezdc/vim-template'
+    Plug 'ciaranm/securemodelines'
+    Plug 'dietsche/vim-lastplace'
+    Plug 'kopischke/vim-fetch'
+    Plug 'tpope/vim-repeat'
+call plug#end() | endif
+
 " Global behavioral settings.
 let g:mapleader = "\<Space>"
 call lib#backupdir($XDG_DATA_HOME . '/nvim/backup//')
@@ -11,6 +21,11 @@ set showcmd
 set ttimeout    " Make sure to wait for the rest of a keycode sequence.
 set ttimeoutlen=100
 set undofile
+
+if lib#has_plugin('vim-template')
+    let g:templates_no_builtin_templates = 1
+    let g:templates_directory = $XDG_CONFIG_HOME . '/nvim/templates'
+endif
 
 " Use the X11 CLIPBOARD selection buffer as the '+' register, when
 " possible.
