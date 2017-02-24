@@ -53,6 +53,9 @@ if lib#plug_begin()
 
     " Building and linting.
     Plug 'neomake/neomake'
+
+    " Appearance and colorscheme.
+    Plug 'arakashic/nvim-colors-solarized'
 call plug#end() | endif
 
 " Global behavioral settings.
@@ -209,3 +212,15 @@ set linebreak
 set number
 set splitbelow
 set splitright
+
+set background=dark
+if lib#has_plugin('nvim-colors-solarized') && $TERM !=# 'linux'
+    colorscheme solarized
+    set cursorline
+else
+    colorscheme delek
+endif
+
+if lib#has_plugin('vim-better-whitespace')
+    highlight ExtraWhitespace ctermbg=252
+endif
