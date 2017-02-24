@@ -13,6 +13,10 @@ if lib#plug_begin()
     Plug 'simnalamburt/vim-mundo'
     Plug 'tpope/vim-vinegar'
     Plug 'tpope/vim-speeddating'
+
+    " Additional commands.
+    Plug 'ntpeters/vim-better-whitespace'
+    Plug 'tpope/vim-eunuch'
 call plug#end() | endif
 
 " Global behavioral settings.
