@@ -17,6 +17,10 @@ if lib#plug_begin()
     " Additional commands.
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'tpope/vim-eunuch'
+
+    " Improvements in usability of searches and movement commands.
+    Plug 'haya14busa/incsearch.vim'
+    Plug 'unblevable/quick-scope'
 call plug#end() | endif
 
 " Global behavioral settings.
@@ -98,6 +102,26 @@ set hlsearch
 nnoremap <silent> <C-L>
     \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
+if lib#has_plugin('incsearch.vim')
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backword)
+    map g/ <Plug>(incsearch-stay)
+
+    if &hlsearch
+        " Automatically clear highlighted results on movement.
+        let g:incsearch#auto_nohlsearch = 1
+        map n  <Plug>(incsearch-nohl-n)
+        map N  <Plug>(incsearch-nohl-N)
+        map *  <Plug>(incsearch-nohl-*)
+        map #  <Plug>(incsearch-nohl-#)
+        map g* <Plug>(incsearch-nohl-g*)
+        map g# <Plug>(incsearch-nohl-g#)
+    endif
+endif
+
+if lib#has_plugin('quick-scope')
+    let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+endif
 
 " Appearance and colorscheme.
 set completeopt=longest,menu
