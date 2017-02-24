@@ -2,6 +2,7 @@ scriptencoding utf-8
 
 " Global behavioral settings.
 let g:mapleader = "\<Space>"
+call lib#backupdir($XDG_DATA_HOME . '/nvim/backup//')
 set autowrite
 set hidden
 set nomodeline  " Disable built-in, insecure modeline handling.
