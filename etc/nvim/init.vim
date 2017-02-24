@@ -30,6 +30,26 @@ if lib#plug_begin()
     Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-rsi'
     Plug 'tpope/vim-surround'
+
+    " Informational commands and mappings.
+    Plug 'tpope/vim-characterize'
+
+    " Filetype plugins
+    Plug 'bkad/vim-terraform'
+    Plug 'cespare/vim-toml'
+    Plug 'cmhamill/vim-jrnl'
+    Plug 'direnv/direnv.vim'
+    Plug 'ekalinin/Dockerfile.vim'
+    Plug 'Glench/Vim-Jinja2-Syntax'
+    Plug 'moskytw/nginx-contrib-vim'
+    Plug 'PotatoesMaster/i3-vim-syntax'
+    Plug 'rust-lang/rust.vim'
+    Plug 'racer-rust/vim-racer'
+    Plug 'saltstack/salt-vim'
+    Plug 'vim-pandoc/vim-pandoc'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
+    Plug 'vim-scripts/openvpn'
+    Plug 'vim-scripts/SyntaxRange'
 call plug#end() | endif
 
 " Global behavioral settings.
@@ -134,6 +154,30 @@ endif
 
 if lib#has_plugin('vim-move')
     let g:move_key_modifier = 'C'
+endif
+
+" Filetype-specific settings.
+if lib#has_plugin('vim-jrnl')
+    let g:jrnl_tagsymbols = ['+']
+    call jrnl#journal_files(
+        \ '~/documents/journals/work',
+        \ '~/documents/journals/personal',
+    \ )
+endif
+if lib#has_plugin('vim-pandoc')
+    let g:pandoc#modules#disabled = ['folding']
+endif
+if lib#has_plugin('vim-pandoc-syntax')
+    let g:pandox#syntax#conceal#use = 0
+    let g:pandoc#syntax#codeblocks#embeds#langs = [
+        \ 'bash=sh',
+        \ 'python',
+        \ 'perl',
+        \ 'ruby',
+    \ ]
+endif
+if lib#has_plugin('vim-racer')
+    let g:racer_cmd = $HOME . '/.cargo/bin/racer'
 endif
 
 " Appearance and colorscheme.
