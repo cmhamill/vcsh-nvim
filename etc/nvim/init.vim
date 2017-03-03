@@ -26,6 +26,7 @@ if lib#plug_begin()
     " Additional or improved text editing features.
     Plug 'andrewradev/splitjoin.vim'
     Plug 'chrisbra/unicode.vim'
+    Plug 'junegunn/vim-easy-align'
     Plug 'matze/vim-move'
     Plug 'tpope/vim-abolish'
     Plug 'tpope/vim-commentary'
@@ -161,6 +162,11 @@ if lib#has_plugin('unicode.vim')
     nmap gC <Plug>(UnicodeGA)
 else
     nnoremap gC ga
+endif
+
+if lib#has_plugin('vim-easy-align')
+    xmap ga <Plug>(EasyAlign)
+    nmap ga <Plug>(EasyAlign)
 endif
 
 if lib#has_plugin('vim-move')
