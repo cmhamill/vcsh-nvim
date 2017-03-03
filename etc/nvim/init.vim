@@ -11,8 +11,8 @@ if lib#plug_begin()
 
     " Elaborations on existing features.
     Plug 'simnalamburt/vim-mundo'
-    Plug 'tpope/vim-vinegar'
     Plug 'tpope/vim-speeddating'
+    Plug 'tpope/vim-vinegar'
 
     " Additional commands.
     Plug 'ntpeters/vim-better-whitespace'
