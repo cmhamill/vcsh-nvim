@@ -85,7 +85,7 @@ noremap <Leader>u :MundoToggle<CR>
 
 " Make undo work in insert mode even after <C-U> or <CR>.
 inoremap <C-U> <C-G>u<C-U>
-inoremap <CR> <C-G>u<CR>
+inoremap <CR>  <C-G>u<CR>
 
 " Make Y work like C and D.
 nnoremap Y y$
