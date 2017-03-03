@@ -17,6 +17,7 @@ if lib#plug_begin()
     " Additional commands.
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'tpope/vim-eunuch'
+    Plug 'tpope/vim-fugitive'
 
     " Improvements in usability of searches and movement commands.
     Plug 'haya14busa/incsearch.vim'
