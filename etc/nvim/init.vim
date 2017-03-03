@@ -25,15 +25,13 @@ if lib#plug_begin()
 
     " Additional or improved text editing features.
     Plug 'andrewradev/splitjoin.vim'
+    Plug 'chrisbra/unicode.vim'
     Plug 'matze/vim-move'
     Plug 'tpope/vim-abolish'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-rsi'
     Plug 'tpope/vim-surround'
-
-    " Informational commands and mappings.
-    Plug 'tpope/vim-characterize'
 
     " Filetype plugins
     Plug 'bkad/vim-terraform'
@@ -157,6 +155,12 @@ endif
 
 if lib#has_plugin('quick-scope')
     let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+endif
+
+if lib#has_plugin('unicode.vim')
+    nmap gC <Plug>(UnicodeGA)
+else
+    nnoremap gC ga
 endif
 
 if lib#has_plugin('vim-move')
