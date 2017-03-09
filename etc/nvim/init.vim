@@ -81,11 +81,12 @@ if has('clipboard')
     set clipboard+=unnamedplus
 endif
 
-noremap <Leader>u :MundoToggle<CR>
-
 " Make undo work in insert mode even after <C-U> or <CR>.
 inoremap <C-U> <C-G>u<C-U>
 inoremap <CR>  <C-G>u<CR>
+
+" Show a tree representation of the undo history.
+nmap <Leader>u :MundoToggle<CR>
 
 " Make Y work like C and D.
 nnoremap Y y$
