@@ -134,7 +134,7 @@ set expandtab
 set incsearch
 set hlsearch
 
-" Keybinding to clear highlighted search results.
+" Clear highlighted search results.
 nnoremap <silent> <C-L>
     \ :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
