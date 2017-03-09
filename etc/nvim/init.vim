@@ -166,6 +166,10 @@ else
 endif
 
 if lib#has_plugin('vim-easy-align')
+    let g:easy_align_ignore_groups = [
+        \ 'Comment',
+        \ 'String',
+    \ ]
     xmap ga <Plug>(EasyAlign)
     nmap ga <Plug>(EasyAlign)
 endif
