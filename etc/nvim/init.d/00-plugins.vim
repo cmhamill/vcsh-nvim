@@ -1,8 +1,8 @@
 if lib#plug_begin()
     " Global behavioral changes.
-    Plug 'ConradIrwin/vim-bracketed-paste'
     Plug 'aperezdc/vim-template'
     Plug 'ciaranm/securemodelines'
+    Plug 'ConradIrwin/vim-bracketed-paste'
     Plug 'dietsche/vim-lastplace'
     Plug 'kopischke/vim-fetch'
     Plug 'tpope/vim-repeat'
